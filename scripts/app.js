@@ -3,35 +3,35 @@ const movieTitle = document.querySelector('.userInputTitle');
 const moviePosterUrl = document.querySelector('.userInputPosterUrl');
 const btn = document.querySelector('.button');
 const movieTitleToDisplay = document.querySelector('.favouriteMovieTitle');
-const movieReleaseDate = document.querySelector('.userInputReleaseDate');
-const movieReleaseDateToDisplay = document.querySelector('.favouriteMovieReleaseDate');
+const movieReleaseYear = document.querySelector('.userInputReleaseYear');
+const movieReleaseYearToDisplay = document.querySelector('.favouriteMovieReleaseYear');
 
 
 let titleInputStorage = localStorage.getItem('title');
-let releaseDateInputStorage = localStorage.getItem('releaseDate');
+let releaseYearInputStorage = localStorage.getItem('releaseYear');
 let imageUrlInStorage = localStorage.getItem('imageUrl');
 
-if (titleInputStorage && imageUrlInStorage && releaseDateInputStorage) {
+if (titleInputStorage && imageUrlInStorage && releaseYearInputStorage) {
     movieTitleToDisplay.textContent = titleInputStorage;
-    movieReleaseDateToDisplay.textContent = releaseDateInputStorage;
+    movieReleaseYearToDisplay.textContent = releaseYearInputStorage;
     container.style.backgroundImage = `linear-gradient(rgb(51, 51, 82, 0.685), rgb(73, 49, 49, 0.582)),url('${imageUrlInStorage}')`;
 }
 
 btn.addEventListener('click', () => {
     let movieTitleInput = movieTitle.value;
-    let movieReleaseDateInput = movieReleaseDate.value;
+    let movieReleaseYearInput = movieReleaseYear.value;
     let posterUrlInput = moviePosterUrl.value;
 
     localStorage.setItem('title', movieTitleInput);
-    localStorage.setItem('releaseDate', movieReleaseDateInput);
+    localStorage.setItem('releaseYear', movieReleaseYearInput);
     localStorage.setItem('imageUrl', posterUrlInput);
 
     movieTitleToDisplay.textContent = movieTitleInput;
-    movieReleaseDateToDisplay.textContent = movieReleaseDateInput;
+    movieReleaseYearToDisplay.textContent = movieReleaseYearInput;
 
     container.style.backgroundImage = `linear-gradient(rgb(51, 51, 82, 0.685), rgb(73, 49, 49, 0.582)),
         url('${posterUrlInput}')`;
     movieTitle.value = '';
     moviePosterUrl.value = '';
-    movieReleaseDate.value = '';
+    movieReleaseYear.value = '';
 });
